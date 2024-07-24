@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CustomTraceListener\CustomTraceListener.csproj" />
   </ItemGroup>
 
 </Project>
