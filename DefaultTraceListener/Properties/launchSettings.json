@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DefaultTraceListener": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "LogFile": "ALogFile"
+      }
+    }
+  }
+}
