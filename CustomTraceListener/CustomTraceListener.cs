@@ -7,12 +7,12 @@ namespace CustomTraceListener
     {
         public override void Write(string message)
         {
-            Console.WriteLine($"CustomTraceListener::Write \"{message}\"");
+            Console.Write($"[\"{message}\"]");
         }
 
         public override void WriteLine(string message)
         {
-            Console.WriteLine($"CustomTraceListener::WriteLine \"{message}\"");
+            Console.WriteLine($"[\"{message}\"]\\n");
         }
     }
 }
