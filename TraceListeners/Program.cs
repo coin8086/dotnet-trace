@@ -12,6 +12,7 @@ namespace TraceListeners
             Trace.TraceInformation("Some information is.");
 
             var ts = new TraceSource("My Trace Source");
+            ts.TraceInformation("some info");
             ts.TraceData(TraceEventType.Start, 1, "some data");
             ts.TraceTransfer(100, "some message", new Guid());
         }

@@ -20,17 +20,33 @@ namespace CustomTraceListener
 
         public override void TraceEvent(TraceEventCache eventCache, string source, TraceEventType eventType, int id)
         {
-            Console.WriteLine($"[a[{eventCache.DateTime}: {source}-{eventType}-{id}]]");
+            TraceEvent(eventCache, source, eventType, id, null, null);
         }
 
         public override void TraceEvent(TraceEventCache eventCache, string source, TraceEventType eventType, int id, string message)
         {
-            Console.WriteLine($"[b[{eventCache.DateTime}: {source}-{eventType}-{id}-{message}]]");
+            TraceEvent(eventCache, source, eventType, id, message, null);
         }
 
         public override void TraceEvent(TraceEventCache eventCache, string source, TraceEventType eventType, int id, string format, params object[] args)
         {
-            Console.WriteLine($"[c[{eventCache.DateTime}: {source}-{eventType}-{id}-{string.Format(format, args)}]]");
+            string msg = null;
+            if (format == null)
+            {
+                msg = string.Empty;
+            }
+            else
+            {
+                if (args != null)
+                {
+                    msg = string.Format(format, args);
+                }
+                else
+                {
+                    msg = format;
+                }
+            }
+            Console.WriteLine($"[c[{eventCache.DateTime}: {source}-{eventType}-{id}-{msg}]]");
         }
 
         public override void TraceData(TraceEventCache eventCache, string source, TraceEventType eventType, int id, object data)
